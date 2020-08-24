@@ -133,7 +133,7 @@ $(document).ready(function() {
         widgets: ['zebra']
     });
 
-    var data = {"OkPercent": 75.04229989482188, "KoPercent": 24.957700105178116};
+    var data = {"OkPercent": 100.0, "KoPercent": 0.0};
     var dataset = [
         {
             "label" : "KO",
@@ -173,7 +173,7 @@ $(document).ready(function() {
     });
 
     // Creates APDEX table
-    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.5461716689785528, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.37570690364769904, 500, 1500, "Open Main Page"], "isController": false}, {"data": [0.7166364343094066, 500, 1500, "Make an order"], "isController": false}]}, function(index, item){
+    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.9999197752970619, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.9998432399535253, 500, 1500, "Open Main Page"], "isController": false}, {"data": [0.9999963114875033, 500, 1500, "Make an order"], "isController": false}]}, function(index, item){
         switch(index){
             case 0:
                 item = item.toFixed(3);
@@ -187,7 +187,7 @@ $(document).ready(function() {
     }, [[0, 0]], 3);
 
     // Create statistics table
-    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 131206, 32746, 24.957700105178116, 15215.292928677112, 1, 131211, 34.0, 130158.9, 131029.0, 131073.0, 42.58251120173905, 61.646161898273675, 11.558368643706807], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["Open Main Page", 65603, 20029, 30.530615977927837, 22854.929362986608, 2, 131211, 3036.0, 130459.0, 130924.0, 131063.0, 21.305395961837807, 45.81223556718801, 2.240344470130454], "isController": false}, {"data": ["Make an order", 65603, 12717, 19.384784232428395, 7575.656494367705, 1, 131200, 21.0, 32522.800000000003, 131064.0, 131073.0, 21.291870609766747, 15.864790096016753, 9.319780285895202], "isController": false}]}, function(index, item){
+    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 542227, 0, 0.0, 4.863212270875442, 1, 938870, 2.0, 3.0, 4.0, 12.0, 150.61965708095195, 176.78647860618824, 0.0], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["Open Main Page", 271115, 0, 0.0, 2.75372812275228, 1, 3023, 2.0, 4.0, 5.0, 11.0, 75.31030796906198, 150.84125160600206, 0.0], "isController": false}, {"data": ["Make an order", 271112, 0, 0.0, 6.9727197615745276, 1, 938870, 3.0, 4.0, 5.0, 14.0, 75.30993486020638, 25.94553288066501, 0.0], "isController": false}]}, function(index, item){
         switch(index){
             // Errors pct
             case 3:
@@ -217,7 +217,7 @@ $(document).ready(function() {
     }, [[0, 0]], 0, summaryTableHeader);
 
     // Create error table
-    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 20441, 62.42289134550785, 15.579318018993034], "isController": false}, {"data": ["Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to 185.233.0.230:3000 [\\\/185.233.0.230] failed: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Connection timed out)", 12305, 37.57710865449215, 9.378382086185082], "isController": false}]}, function(index, item){
+    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": []}, function(index, item){
         switch(index){
             case 2:
             case 3:
@@ -228,7 +228,7 @@ $(document).ready(function() {
     }, [[1, 1]]);
 
         // Create top5 errors by sampler
-    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 131206, 32746, "Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 20441, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to 185.233.0.230:3000 [\\\/185.233.0.230] failed: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Connection timed out)", 12305, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["Open Main Page", 65603, 20029, "Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 10875, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to 185.233.0.230:3000 [\\\/185.233.0.230] failed: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Connection timed out)", 9154, null, null, null, null, null, null], "isController": false}, {"data": ["Make an order", 65603, 12717, "Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 9566, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to 185.233.0.230:3000 [\\\/185.233.0.230] failed: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Connection timed out)", 3151, null, null, null, null, null, null], "isController": false}]}, function(index, item){
+    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 542227, 0, null, null, null, null, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": [], "isController": false}, {"data": [], "isController": false}]}, function(index, item){
         return item;
     }, [[0, 0]], 0);
 

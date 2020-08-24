@@ -133,7 +133,7 @@ $(document).ready(function() {
         widgets: ['zebra']
     });
 
-    var data = {"OkPercent": 99.9911197222895, "KoPercent": 0.008880277710502947};
+    var data = {"OkPercent": 100.0, "KoPercent": 0.0};
     var dataset = [
         {
             "label" : "KO",
@@ -173,7 +173,7 @@ $(document).ready(function() {
     });
 
     // Creates APDEX table
-    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.9944457899410672, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.9890047791268406, 500, 1500, "Open Main Page"], "isController": false}, {"data": [0.999886976458811, 500, 1500, "Make an order"], "isController": false}]}, function(index, item){
+    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.9999842363381597, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.9999778145200463, 500, 1500, "Open Main Page"], "isController": false}, {"data": [0.9999906583962335, 500, 1500, "Make an order"], "isController": false}]}, function(index, item){
         switch(index){
             case 0:
                 item = item.toFixed(3);
@@ -187,7 +187,7 @@ $(document).ready(function() {
     }, [[0, 0]], 3);
 
     // Create statistics table
-    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 123870, 11, 0.008880277710502947, 132.27333494793112, 17, 1049025, 31.0, 45.0, 47.0, 338.950000000008, 29.918273623589133, 35.10924913853933, 10.385507459159152], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["Open Main Page", 61936, 4, 0.006458279514337381, 131.28242056316276, 29, 1049025, 43.0, 47.0, 49.0, 1064.0, 15.770940432972614, 31.588656722256413, 2.3870487253333974], "isController": false}, {"data": ["Make an order", 61934, 7, 0.011302354118900765, 133.2642813317399, 17, 960086, 24.0, 26.0, 28.0, 32.0, 14.959271045306055, 5.1462529229591745, 8.121498676082533], "isController": false}]}, function(index, item){
+    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 856400, 0, 0.0, 21.215500934143346, 0, 939394, 4.0, 9.0, 14.0, 34.0, 230.26543980322575, 270.2791357919952, 0.0], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["Open Main Page", 428208, 0, 0.0, 10.664270634831741, 0, 935010, 3.0, 6.0, 10.0, 30.0, 115.13502569517321, 230.60736103593774, 0.0], "isController": false}, {"data": ["Make an order", 428192, 0, 0.0, 31.76712549510506, 1, 939394, 6.0, 19.0, 29.0, 64.0, 115.1315285326909, 39.67241545584615, 0.0], "isController": false}]}, function(index, item){
         switch(index){
             // Errors pct
             case 3:
@@ -217,7 +217,7 @@ $(document).ready(function() {
     }, [[0, 0]], 0, summaryTableHeader);
 
     // Create error table
-    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 11, 100.0, 0.008880277710502947], "isController": false}]}, function(index, item){
+    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": []}, function(index, item){
         switch(index){
             case 2:
             case 3:
@@ -228,7 +228,7 @@ $(document).ready(function() {
     }, [[1, 1]]);
 
         // Create top5 errors by sampler
-    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 123870, 11, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 11, null, null, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["Open Main Page", 61936, 4, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 4, null, null, null, null, null, null, null, null], "isController": false}, {"data": ["Make an order", 61934, 7, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 7, null, null, null, null, null, null, null, null], "isController": false}]}, function(index, item){
+    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 856400, 0, null, null, null, null, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": [], "isController": false}, {"data": [], "isController": false}]}, function(index, item){
         return item;
     }, [[0, 0]], 0);
 

@@ -133,7 +133,7 @@ $(document).ready(function() {
         widgets: ['zebra']
     });
 
-    var data = {"OkPercent": 93.46685082872928, "KoPercent": 6.533149171270718};
+    var data = {"OkPercent": 100.0, "KoPercent": 0.0};
     var dataset = [
         {
             "label" : "KO",
@@ -173,7 +173,7 @@ $(document).ready(function() {
     });
 
     // Creates APDEX table
-    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.9170666436464089, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.8998584449661648, 500, 1500, "Open Main Page"], "isController": false}, {"data": [0.9342795966293687, 500, 1500, "Make an order"], "isController": false}]}, function(index, item){
+    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.9997937187703745, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.9996009825297978, 500, 1500, "Open Main Page"], "isController": false}, {"data": [0.9999864727398654, 500, 1500, "Make an order"], "isController": false}]}, function(index, item){
         switch(index){
             case 0:
                 item = item.toFixed(3);
@@ -187,7 +187,7 @@ $(document).ready(function() {
     }, [[0, 0]], 3);
 
     // Create statistics table
-    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 57920, 3784, 6.533149171270718, 122.06325966850817, 2, 954544, 22.0, 37.0, 1034.0, 3064.0, 28.45998649723016, 35.49648817580184, 9.245092980948957], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["Open Main Page", 28964, 1949, 6.729042949868803, 151.680983289601, 2, 952368, 33.0, 40.0, 1042.0, 3063.0, 17.358826187590875, 35.14622478099945, 2.4507472795550735], "isController": false}, {"data": ["Make an order", 28956, 1835, 6.33720127089377, 92.43735322558382, 2, 954544, 19.0, 23.0, 25.0, 38.0, 14.228670998100288, 6.681499671106943, 7.236129045117408], "isController": false}]}, function(index, item){
+    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 739282, 0, 0.0, 18.147679775782183, 0, 938846, 11.0, 85.0, 103.0, 146.0, 236.96166275300192, 278.14486205894343, 0.0], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["Open Main Page", 369658, 0, 0.0, 11.89043386048747, 0, 938846, 11.0, 59.0, 85.0, 125.0, 118.48711590683553, 237.32136203605438, 0.0], "isController": false}, {"data": ["Make an order", 369624, 0, 0.0, 24.40550126615172, 1, 2058, 61.0, 158.0, 190.0, 256.0, 118.47667353461948, 40.8256184473047, 0.0], "isController": false}]}, function(index, item){
         switch(index){
             // Errors pct
             case 3:
@@ -217,7 +217,7 @@ $(document).ready(function() {
     }, [[0, 0]], 0, summaryTableHeader);
 
     // Create error table
-    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 3, 0.07928118393234672, 0.0051795580110497235], "isController": false}, {"data": ["Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 3781, 99.92071881606765, 6.5279696132596685], "isController": false}]}, function(index, item){
+    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": []}, function(index, item){
         switch(index){
             case 2:
             case 3:
@@ -228,7 +228,7 @@ $(document).ready(function() {
     }, [[1, 1]]);
 
         // Create top5 errors by sampler
-    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 57920, 3784, "Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 3781, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 3, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["Open Main Page", 28964, 1949, "Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 1948, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 1, null, null, null, null, null, null], "isController": false}, {"data": ["Make an order", 28956, 1835, "Non HTTP response code: java.net.NoRouteToHostException\/Non HTTP response message: \\u041D\\u0435\\u0442 \\u043C\\u0430\\u0440\\u0448\\u0440\\u0443\\u0442\\u0430 \\u0434\\u043E \\u0443\\u0437\\u043B\\u0430 (Host unreachable)", 1833, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: \\u0412\\u0440\\u0435\\u043C\\u044F \\u043E\\u0436\\u0438\\u0434\\u0430\\u043D\\u0438\\u044F \\u0441\\u043E\\u0435\\u0434\\u0438\\u043D\\u0435\\u043D\\u0438\\u044F \\u0438\\u0441\\u0442\\u0435\\u043A\\u043B\\u043E (Read failed)", 2, null, null, null, null, null, null], "isController": false}]}, function(index, item){
+    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 739282, 0, null, null, null, null, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": [], "isController": false}, {"data": [], "isController": false}]}, function(index, item){
         return item;
     }, [[0, 0]], 0);
 
