@@ -1,0 +1,1 @@
+["sbt.Task[scala.collection.immutable.Map[java.lang.String, scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]]",{"2.12.10":{"hashes":[["/home/alex/IT/OTUS/QA-Load-2020-07/QA-Load/lesson 10 - gatling/sushiShopLoad/sushishopload/project/Dependencies.scala","56b29936fc1abbcde8fda398cdf3394ae2e71393"]],"lastModifiedTimes":[]}}]

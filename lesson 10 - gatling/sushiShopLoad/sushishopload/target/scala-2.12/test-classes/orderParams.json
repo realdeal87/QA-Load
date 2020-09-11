@@ -1,0 +1,19 @@
+{
+  "name": "My Name",
+  "email": "My@email.com",
+  "adress": "My Address",
+  "cartItems": [
+    {
+      "_id": "sushi1",
+      "title": "Philadelfia",
+      "image": "/images/sushi1.jpg",
+      "description": "Best delicious!",
+      "price": 500,
+      "availableSizes": [
+        "Small",
+        "Big"
+      ],
+      "count": 1
+    }
+  ]
+}

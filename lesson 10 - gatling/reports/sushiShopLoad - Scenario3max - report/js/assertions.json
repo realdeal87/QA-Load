@@ -1,0 +1,10 @@
+{
+  "simulation": "sushiShopLoad.sushiShopLoadSimulation",
+  "simulationId": "sushishoploadsimulation",
+  "start": 1599839557089,
+  "description": "",
+  "scenarios": ["scenarioThree"],
+  "assertions": [
+
+  ]
+}
